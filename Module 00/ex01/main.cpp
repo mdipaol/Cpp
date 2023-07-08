@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:21:57 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/08 20:22:53 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/08 20:31:56 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	main()
 		}
 		else if (input.compare("EXIT") == 0)
 		{
-			std::cout << "\033[1;41m EXIT \033[0m" << std::endl;
+			std::cout << "\033[1;41m             EXIT               \033[0m" << std::endl;
 			flag = 1;
 		}
 	}
