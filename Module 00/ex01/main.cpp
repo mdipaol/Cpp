@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:21:57 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/09 18:52:03 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/09 19:01:37 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main()
 	{
 		std::cout << "\033[1;45mADD COMMAND: ";
 		std::getline(std::cin, input);
-		std::cout << '\r' << "\033[1;45m                                \033[0m" << std::endl;
+		std::cout << "\033[0m";
 		if (input.compare("ADD") == 0)
 			add_contact(&address_book);
 		else if (input.compare("SEARCH") == 0)
