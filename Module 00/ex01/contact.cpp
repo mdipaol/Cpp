@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:17:11 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/09 18:46:43 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/09 22:46:45 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,21 @@ void	Contact::set_contact()
 		std::cout << "\033[1;46m EMPTY FIELDS \033[0m" << std::endl;
 		set_contact();
 	}
+}
+
+std::string	Contact::get_data(int index)
+{
+	if (index == 0)
+		return (_firstname);
+	else if (index == 1)
+		return (_lastname);
+	else if (index == 2)
+		return (_nickname);
+	else if (index == 3)
+		return (_phonenumber);
+	else if (index == 4)
+		return (_darkestsecret);
+	return (0);
 }
 
 Contact::Contact()

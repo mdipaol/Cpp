@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:22:36 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/09 18:29:12 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/09 19:55:30 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ public:
 	std::string	TakeNickname();
 	std::string	TakePhoneNumber();
 	std::string	TakeDarkestSecret();
-	void	set_contact();
+	void		set_contact();
+	std::string	get_data(int index);
 
 	Contact();
 	~Contact();
