@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:21:57 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/08 20:31:56 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/09 18:52:03 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,13 @@ void	search_contact(Phonebook *address_book)
 void	add_contact(Phonebook *address_book)
 {
 	Contact first;
-	std::cout << "wow" << std::endl;
-	(void)address_book;
+	static int i = 0;
+
+	address_book->Contacts[i].set_contact();
+	if (i == 7)
+		i = 0;
+	else
+		i++;
 }
 
 int	main()
@@ -33,7 +38,9 @@ int	main()
 
 	while (!flag)
 	{
+		std::cout << "\033[1;45mADD COMMAND: ";
 		std::getline(std::cin, input);
+		std::cout << '\r' << "\033[1;45m                                \033[0m" << std::endl;
 		if (input.compare("ADD") == 0)
 			add_contact(&address_book);
 		else if (input.compare("SEARCH") == 0)
@@ -42,7 +49,7 @@ int	main()
 		}
 		else if (input.compare("EXIT") == 0)
 		{
-			std::cout << "\033[1;41m             EXIT               \033[0m" << std::endl;
+			std::cout << "\033[F" << "\033[1;41m             EXIT               \033[0m" << std::endl;
 			flag = 1;
 		}
 	}
