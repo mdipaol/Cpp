@@ -6,14 +6,14 @@
 #    By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 14:39:03 by mdi-paol          #+#    #+#              #
-#    Updated: 2023/07/07 16:27:08 by mdi-paol         ###   ########.fr        #
+#    Updated: 2023/07/09 19:07:22 by mdi-paol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = AddressBook
 SRCS = main.cpp contact.cpp phonebook.cpp
 CC = c++
-FLAGS = -Wall -Werror -Wextra -std=c++98
+FLAGS = -Wall -Werror -Wextra -std=c++98 -g
 OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)

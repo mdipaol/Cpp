@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:21:57 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/09 19:01:37 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/09 19:27:32 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	search_contact(Phonebook *address_book)
 {
-	(void)address_book;
+	address_book->display_contacts();
 }
 
 void	add_contact(Phonebook *address_book)
