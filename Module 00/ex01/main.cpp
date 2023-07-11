@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:21:57 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/09 22:18:47 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/11 18:00:48 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 void	search_contact(Phonebook *address_book)
 {
 	address_book->display_contacts();
-	address_book->display_index();
 }
 
 void	add_contact(Phonebook *address_book)
@@ -24,7 +23,7 @@ void	add_contact(Phonebook *address_book)
 	Contact first;
 	static int i = 0;
 
-	address_book->Contacts[i].set_contact();
+	address_book->get_contacts(i);
 	if (i == 7)
 		i = 0;
 	else
@@ -39,7 +38,7 @@ int	main()
 
 	while (!flag)
 	{
-		std::cout << "\033[1;45mADD COMMAND: ";
+		std::cout << "\033[1;35mADD COMMAND: ";
 		std::getline(std::cin, input);
 		std::cout << "\033[0m";
 		if (input.compare("ADD") == 0)

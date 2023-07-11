@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:19:06 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/09 22:45:28 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/11 17:25:23 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,11 @@ void	Phonebook::display_index()
 	std::string input;
 	int	i;
 	std::string str[5] = {"FIRST NAME: ", "LAST NAME: ", "NICKANAME: ", "PHONE NUMBER: ", "DARKEST SECRET: "};
-
-	std::cout << "\033[1;43mCHOOSE INDEX: ";
+	std::cout << "\033[1;33mCHOOSE INDEX: ";
 	std::getline(std::cin, input);
 	std::cout << "\033[0m";
 	i = atoi(input.c_str());
-	if (i < 1 || i > 8)
+	if (i < 1 || i > 8 || Contacts[i - 1].get_data(0).empty())
 	{
 		std::cout << "\033[1;41m            INSERT A CORRECT INDEX           \033[0m" << std::endl;
 		display_index();
@@ -38,7 +37,7 @@ void	Phonebook::display_index()
 	{
 		for (int j = 0; j < 5; j++)
 		{
-			std::cout << "\033[1;46m" << str[j] << Contacts[i - 1].get_data(j) << "\033[0m" << std::endl;
+			std::cout << "\033[1;36m" << str[j] << Contacts[i - 1].get_data(j) << "\033[0m" << std::endl;
 		}
 	}
 }
@@ -50,8 +49,15 @@ void	Phonebook::display_contacts()
 	std::string lastname = "LAST NAME";
 	std::string nickname = "NICKANAME";
 
-	std::cout << "\033[F" << "\033[1;43m                   SEARCH                    \033[0m" << std::endl;
-	std::cout << "\033[1;43m";
+	int i = 1;
+	if (Contacts[i - 1].get_data(0).empty() || Contacts[i - 1].get_data(1).empty() || Contacts[i - 1].get_data(2).empty())
+	{
+		std::cout << "\033[F" << "\033[1;33m   THE ADDRESS BOOK IS EMPTY    \033[0m" << std::endl;
+		return;
+	}
+
+	std::cout << "\033[F" << "\033[1;33m                   SEARCH                    \033[0m" << std::endl;
+	std::cout << "\033[1;33m";
 	std::cout << "|" << std::right << std::setw(10) << index << "|";
 	std::cout << std::right << std::setw(10) << firstname << "|";
 	std::cout << std::right << std::setw(10) << lastname << "|";
@@ -59,13 +65,21 @@ void	Phonebook::display_contacts()
 
 	for(int i = 1; i < 9; i++)
 	{
+		if (!Contacts[i - 1].get_data(0).empty() || !Contacts[i - 1].get_data(1).empty() || !Contacts[i - 1].get_data(2).empty())
+		{
 			std::cout << "|" << std::right << std::setw(10) << i << "|";
 			std::cout << std::right << std::setw(10) << cut_str(Contacts[i - 1].get_data(0)) << "|";
 			std::cout << std::right << std::setw(10) << cut_str(Contacts[i - 1].get_data(1)) << "|";
 			std::cout << std::right << std::setw(10) << cut_str(Contacts[i - 1].get_data(2)) << "|" << std::endl;
+		}
 	}
-	std::cout << "                                             " << std::endl;
 	std::cout << "\033[0m";
+	display_index();
+}
+
+void	Phonebook::get_contacts(int i)
+{
+	Contacts[i].set_contact();
 }
 
 Phonebook::Phonebook()

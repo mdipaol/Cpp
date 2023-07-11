@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/07 16:19:03 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/11 17:25:28 by mdi-paol         ###   ########.fr       */
+/*   Created: 2023/07/11 17:43:14 by mdi-paol          #+#    #+#             */
+/*   Updated: 2023/07/11 17:51:58 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <iomanip>
-#include <cstdlib>
-#include <string>
-#include <cmath>
-#include <unistd.h>
-#include "contact.hpp"
+#ifndef ZOMBIE_H
+# define ZOMBIE_H
 
-class Phonebook
+#include<iostream>
+
+class Zombie
 {
 private:
-	Contact Contacts[8];
+	std::string	name;
 public:
-	void	get_contacts(int i);
-	void	display_contacts();
-	void	display_index();
-
-	Phonebook();
-	~Phonebook();
+	std::string get_name();
+	Zombie(/* args */);
+	~Zombie();
 };
 
+Zombie::Zombie(/* args */)
+{
+}
 
+Zombie::~Zombie()
+{
+}
+
+#endif

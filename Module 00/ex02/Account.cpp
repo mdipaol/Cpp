@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 10:09:24 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/11 11:03:25 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/11 12:54:59 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	Account::_displayTimestamp()
 	std::time_t now = std::time(NULL);
 	std::tm* localTime = std::localtime(&now);
 
-	char timestamp[15];
+	char timestamp[16];
 	std::strftime(timestamp, sizeof(timestamp), "%Y%m%d_%H%M%S", localTime);
 	std::cout << "[" << timestamp << "]";
 }

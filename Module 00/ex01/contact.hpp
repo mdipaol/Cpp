@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:22:36 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/09 19:55:30 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/11 11:34:33 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <cstdlib>
 
 class Contact
 {
