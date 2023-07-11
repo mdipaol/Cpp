@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 10:09:24 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/11 10:22:37 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/11 11:03:25 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	Account::makeDeposit(int deposit)
 	_totalAmount = _totalAmount + deposit;
 	_nbDeposits = 1;
 	_totalNbDeposits++;
-	std::cout << " index:" << _accountIndex << ';' << "p_amount:" << tmp << ';' << "deposits:"
+	std::cout << " index:" << _accountIndex << ';' << "p_amount:" << tmp << ';' << "deposit:"
 				<< deposit << ';' << "amount:" << _amount << ';' << "nb_deposits:" << _nbDeposits << std::endl;
 	return;
 }
@@ -72,7 +72,7 @@ bool	Account::makeWithdrawal(int withdrawal)
 		_nbWithdrawals = 1;
 		_totalNbWithdrawals++;
 		std::cout << " index:" << _accountIndex << ';' << "p_amount:" << tmp << ';' << "withdrawal:"
-				<< withdrawal << ';' << "amount:" << _amount << ';' << "nb_nbWithdrawals:" << _nbWithdrawals << std::endl;
+				<< withdrawal << ';' << "amount:" << _amount << ';' << "nb_withdrawals:" << _nbWithdrawals << std::endl;
 		return (true);
 	}
 	else
