@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 17:43:14 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/11 17:51:58 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/15 18:31:02 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,15 @@
 class Zombie
 {
 private:
-	std::string	name;
+	std::string	_name;
 public:
 	std::string get_name();
-	Zombie(/* args */);
+	void announce();
+	Zombie(std::string name);
 	~Zombie();
 };
 
-Zombie::Zombie(/* args */)
-{
-}
-
-Zombie::~Zombie()
-{
-}
+Zombie	*newZombie(std::string name);
+void randomChump(std::string name);
 
 #endif
