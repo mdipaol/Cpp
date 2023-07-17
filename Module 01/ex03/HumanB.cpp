@@ -6,8 +6,21 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 20:17:08 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/15 20:18:06 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/17 12:47:37 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
+
+void	HumanB::attack()
+{
+	std::cout << _name << "attack with their" << << std::endl;
+}
+
+HumanB::HumanB()
+{
+}
+
+HumanB::~HumanB()
+{
+}
