@@ -6,11 +6,10 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 20:15:53 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/17 12:29:45 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/19 10:18:08 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 

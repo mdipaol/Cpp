@@ -6,12 +6,12 @@
 #    By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 14:39:03 by mdi-paol          #+#    #+#              #
-#    Updated: 2023/07/15 20:15:43 by mdi-paol         ###   ########.fr        #
+#    Updated: 2023/07/19 10:16:24 by mdi-paol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Unnecessary_Violence
-SRCS = main.cpp
+SRCS = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 CC = c++
 FLAGS = -Wall -Werror -Wextra -std=c++98
 OBJS = $(SRCS:.cpp=.o)
