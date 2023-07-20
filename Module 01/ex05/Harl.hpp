@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 14:00:42 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/19 14:07:01 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/20 12:01:47 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 class Harl
 {
 private:
-	void	debug();
-	void	info();
-	void	warning();
-	void	error();
+	void	debug() const;
+	void	info() const;
+	void	warning() const;
+	void	error() const;
 public:
 	Harl();
 	~Harl();

@@ -6,11 +6,11 @@
 #    By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 14:39:03 by mdi-paol          #+#    #+#              #
-#    Updated: 2023/07/19 14:01:19 by mdi-paol         ###   ########.fr        #
+#    Updated: 2023/07/20 11:17:50 by mdi-paol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Harl2
+NAME = harl
 SRCS = main.cpp Harl.cpp
 CC = c++
 FLAGS = -Wall -Werror -Wextra -std=c++98
