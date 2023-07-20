@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 14:00:39 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/20 15:08:12 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/20 15:36:31 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	Harl::complain(std::string level)
 {
 	void	(Harl::*function[4])(void) const = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	std::string	msg[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	std::string title[4] = {"\033[1;32m[DEBUG]\033[0m", "\033[1;32m[INFO]\033[0m", "\033[1;32m[WARNING]\033[0m", "\033[1;32m[ERROR]\033[0m"};
+	std::string title[4] = {"\033[1;33m[DEBUG]\033[0m", "\033[1;33m[INFO]\033[0m", "\033[1;33m[WARNING]\033[0m", "\033[1;33m[ERROR]\033[0m"};
 	int	arr[4] = {0, 1, 2, 3};
 	int	i = 4;
 	for(int	j = 0; j < 4; j++)
