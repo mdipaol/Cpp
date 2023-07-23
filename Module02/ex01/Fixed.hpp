@@ -6,22 +6,23 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 11:14:03 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/21 16:41:40 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/23 17:39:32 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cmath>
 
 class Fixed
 {
 private:
 	int	_fp_value;
-	const static int _nb_fb;
+	const static int _nb_fractbits;
 public:
 	Fixed();
 	Fixed(Fixed const &Fixed);
 	Fixed(const int nb);
-	Fixed(const int fp_nb);
+	Fixed(const float nb);
 	Fixed &operator= (const Fixed &Fixed);
 	~Fixed();
 	int		getRawBits() const;
@@ -29,3 +30,5 @@ public:
 	float	toFloat(void) const;
 	int		toInt(void) const;
 };
+
+std::ostream&	operator<<(std::ostream& out, const Fixed& obj);

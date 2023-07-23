@@ -6,13 +6,13 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 11:14:11 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/21 16:15:42 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/23 18:12:06 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-const int Fixed::_nb_fb = 8;
+const int Fixed::_nb_fractbits = 8;
 
 Fixed::Fixed() : _fp_value(0)
 {
@@ -31,6 +31,18 @@ Fixed::Fixed(Fixed const &Fixed)
 		*this = Fixed;
 }
 
+Fixed::Fixed(const int nb)
+{
+	std::cout << "Int constructor called" << std::endl;
+	_fp_value = nb << _nb_fractbits;
+}
+
+Fixed::Fixed(const float nb)
+{
+	std::cout << "Float constructor called" << std::endl;
+	_fp_value = (float)(roundf(nb * (1 << _nb_fractbits)));
+}
+
 Fixed	&Fixed::operator=(const Fixed &Fixed)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
@@ -43,11 +55,28 @@ Fixed	&Fixed::operator=(const Fixed &Fixed)
 
 int	Fixed::getRawBits() const
 {
-	std::cout << "getRawBits member function called" << std::endl;
+	//std::cout << "getRawBits member function called" << std::endl;
 	return (_fp_value);
 }
 
 void	Fixed::setRawBits(int const raw)
 {
 	_fp_value = raw;
+}
+
+std::ostream&	operator<<(std::ostream& out, const Fixed& obj)
+{
+	out << obj.toFloat();
+	return (out);
+}
+
+
+float	Fixed::toFloat() const
+{
+	return ((float) (_fp_value) / (1 << _nb_fractbits));
+}
+
+int	Fixed::toInt() const
+{
+	return (_fp_value >> _nb_fractbits);
 }

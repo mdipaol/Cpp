@@ -6,11 +6,11 @@
 #    By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 14:39:03 by mdi-paol          #+#    #+#              #
-#    Updated: 2023/07/21 16:10:31 by mdi-paol         ###   ########.fr        #
+#    Updated: 2023/07/23 21:33:02 by mdi-paol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = My_First_Class_OCF
+NAME = More_Fixed_Points
 SRCS = main.cpp Fixed.cpp
 CC = c++
 FLAGS = -Wall -Werror -Wextra -std=c++98
