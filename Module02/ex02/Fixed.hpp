@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 11:14:03 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/24 16:11:44 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/24 20:00:12 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,30 @@ public:
 	Fixed(Fixed const &Fixed);
 	Fixed(const int nb);
 	Fixed(const float nb);
-	Fixed &operator= (const Fixed &Fixed);
+	Fixed &operator=(const Fixed &obj);
+	bool operator>(const Fixed& obj) const;
+	bool operator<(const Fixed& obj) const;
+	bool operator>=(const Fixed& obj) const;
+	bool operator<=(const Fixed& obj) const;
+	bool operator==(const Fixed& obj) const;
+	bool operator!=(const Fixed& obj) const;
+	Fixed operator+(const Fixed& obj) const;
+	Fixed operator-(const Fixed& obj) const;
+	Fixed operator*(const Fixed& obj) const;
+	Fixed operator/(const Fixed& obj) const;
+	Fixed &operator++();
+	Fixed operator++(int);
+	Fixed &operator--();
+	Fixed operator--(int);
 	~Fixed();
 	int		getRawBits() const;
 	void	setRawBits(int const raw);
 	float	toFloat(void) const;
 	int		toInt(void) const;
+	static Fixed	&min(Fixed &obj1, Fixed &obj2);
+	static const Fixed	&min(const Fixed &obj1, const Fixed &obj2);
+	static Fixed	&max(Fixed &obj1, Fixed &obj2);
+	static const Fixed	&max(const Fixed &obj1, const Fixed &obj2);
 };
 
 std::ostream&	operator<<(std::ostream& out, const Fixed& obj);
