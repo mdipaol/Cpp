@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/24 20:06:42 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/26 00:04:36 by mdi-paol         ###   ########.fr       */
+/*   Created: 2023/07/24 20:06:49 by mdi-paol          #+#    #+#             */
+/*   Updated: 2023/07/25 20:38:12 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Point.hpp"
+#ifndef POINT_H
+# define POINT_H
+
 #include "Fixed.hpp"
 
-int	main()
+class Point
 {
-	Point const a (2, 2);
-	Point const b (3, 3);
-	Point const c (2, 5);
-	Point const point (2.5f, 3.5f);
+private:
+	const Fixed	_x;
+	const Fixed	_y;
+public:
+	Point();
+	Point(const float nb_1, const float nb_2);
+	Point(const Point &obj);
+	Point	&operator=(const Point &obj);
+	~Point();
+	float	get_x() const;
+	float	get_y() const;
+};
 
-	if (bsp(a, b, c, point))
-		std::cout << "\033[1;32mThe point is inside the triangle\033[0m" << std::endl;
-	else
-		std::cout << "\033[1;31mThe point is not inside the triangle\033[0m" << std::endl;
-}
+bool	bsp(Point const a, Point const b, Point const c, Point const point);
+
+#endif
