@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 00:29:48 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/28 20:37:58 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/29 01:22:35 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@
 int	main()
 {
 	DiamondTrap c("mdi_paol");
-	c.printattributes();
+	c.whoAmI();
 }

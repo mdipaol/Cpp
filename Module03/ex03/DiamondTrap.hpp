@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 15:45:53 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/28 20:58:03 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/29 01:21:59 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ class DiamondTrap : public ScavTrap, public FragTrap
 		DiamondTrap(DiamondTrap const &obj);
 		DiamondTrap &operator=(const DiamondTrap &obj);
 		~DiamondTrap();
-		void	printattributes();
-		void	whoami();
+		//void	printattributes();
+		void	whoAmI();
 		using	ScavTrap::attack;
 
 };

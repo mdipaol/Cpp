@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 00:39:02 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/27 00:56:49 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/29 01:19:21 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	_attackdamage = 30;
 }
 
-FragTrap::FragTrap(FragTrap const &obj)
+FragTrap::FragTrap(FragTrap const &obj) : ClapTrap()
 {
 	std::cout << "\033[1;42m" << "FragTrap Copy Constructor called!" << "\033[0m" << std::endl;
 	if (this != &obj)

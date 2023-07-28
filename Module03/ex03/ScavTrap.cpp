@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 18:57:30 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/27 00:57:00 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/29 01:18:37 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	_attackdamage = 20;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &obj)
+ScavTrap::ScavTrap(ScavTrap const &obj) : ClapTrap()
 {
 	std::cout << "\033[1;42m" << "ScavTrap Copy Constructor called!" << "\033[0m" << std::endl;
 	if (this != &obj)
