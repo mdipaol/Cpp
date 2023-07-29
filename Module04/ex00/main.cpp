@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:07:37 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/29 23:19:50 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/29 23:24:39 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 int main()
 {
-	//Correct Test
-	/* const Animal* meta = new Animal();
+	// Correct Test
+	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 
@@ -31,19 +31,19 @@ int main()
 
  	delete meta;
 	delete j;
-	delete i; */
+	delete i;
 
-	//Wrong Test
-	const WrongAnimal* meta = new WrongAnimal();
-	const WrongAnimal* j = new WrongCat();
+	// Wrong Test
+	// const WrongAnimal* meta = new WrongAnimal();
+	// const WrongAnimal* j = new WrongCat();
 
 
-	std::cout << j->getType() << " " << std::endl;
-	j->makeSound();
-	meta->makeSound();
+	// std::cout << j->getType() << " " << std::endl;
+	// j->makeSound();
+	// meta->makeSound();
 
- 	delete meta;
-	delete j;
+ 	// delete meta;
+	// delete j;
 
 	return 0;
 }
