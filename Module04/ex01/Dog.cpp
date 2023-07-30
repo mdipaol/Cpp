@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:10:41 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/30 19:04:31 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/30 19:40:38 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ Dog	&Dog::operator=(Dog const &obj)
 	if (this != &obj)
 	{
 		this->type = obj.type;
+		brain = new Brain(*obj.brain);
 	}
 	return(*this);
 }
