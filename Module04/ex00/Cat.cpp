@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:09:51 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/29 23:11:44 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/30 18:59:13 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Cat::~Cat()
 	std::cout << "Cat Deconstructor Called" << std::endl;
 }
 
-Cat::Cat(Cat const &obj)
+Cat::Cat(Cat const &obj) : Animal()
 {
 	std::cout << "Cat Copy Constructor Called" << std::endl;
 	if (this != &obj)

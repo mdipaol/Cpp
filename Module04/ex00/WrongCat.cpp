@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 20:31:28 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/29 23:23:07 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/30 18:59:38 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ WrongCat::~WrongCat()
 	std::cout << "WrongCat Deconstructor Called" << std::endl;
 }
 
-WrongCat::WrongCat(WrongCat const &obj)
+WrongCat::WrongCat(WrongCat const &obj) : WrongAnimal()
 {
 	std::cout << "WrongCat Copy Constructor Called" << std::endl;
 	if (this != &obj)

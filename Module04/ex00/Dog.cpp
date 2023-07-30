@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:10:41 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/29 23:11:52 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/30 18:59:17 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Dog::~Dog()
 	std::cout << "Dog Deconstructor Called" << std::endl;
 }
 
-Dog::Dog(Dog const &obj)
+Dog::Dog(Dog const &obj) : Animal()
 {
 	std::cout << "Dog Copy Constructor Called" << std::endl;
 	if (this != &obj)
