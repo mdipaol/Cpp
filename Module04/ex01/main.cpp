@@ -6,44 +6,34 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:07:37 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/29 23:24:39 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/30 18:57:29 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
+#include "Brain.hpp"
 
 int main()
 {
-	// Correct Test
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	Animal *animal[100];
 
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
+	for(int i = 0; i < 100; i++)
+	{
+		if (i < 50)
+			animal[i] = new Dog();
+		else
+			animal[i] = new Cat();
+	}
+	for (int i = 0; i < 100; i++)
+		delete animal[i];
+	return(0);
 
- 	delete meta;
-	delete j;
-	delete i;
-
-	// Wrong Test
-	// const WrongAnimal* meta = new WrongAnimal();
-	// const WrongAnimal* j = new WrongCat();
-
-
-	// std::cout << j->getType() << " " << std::endl;
-	// j->makeSound();
-	// meta->makeSound();
-
- 	// delete meta;
-	// delete j;
-
-	return 0;
+	// TEST SUBJECT
+	// const Animal* j = new Dog();
+	// const Animal* i = new Cat();
+	// delete j;//should not create a leak
+	// delete i;
+	// return 0;
 }

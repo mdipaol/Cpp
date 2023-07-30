@@ -6,25 +6,28 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:10:41 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/29 23:11:52 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/30 18:51:34 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 Dog::Dog()
 {
 	std::cout << "Dog Constructor Called" << std::endl;
 	type = "Dog";
+	this->brain = new Brain();
 }
 
 Dog::~Dog()
 {
 	std::cout << "Dog Deconstructor Called" << std::endl;
+	delete this->brain;
 }
 
-Dog::Dog(Dog const &obj)
+Dog::Dog(Dog const &obj) : Animal()
 {
 	std::cout << "Dog Copy Constructor Called" << std::endl;
 	if (this != &obj)
