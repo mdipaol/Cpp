@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/29 20:31:56 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/31 16:07:05 by mdi-paol         ###   ########.fr       */
+/*   Created: 2023/08/03 17:52:44 by mdi-paol          #+#    #+#             */
+/*   Updated: 2023/08/03 17:57:11 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#include "ICharacter.hpp"
+#include "Character.hpp"
 
-#include <iostream>
-
-class WrongAnimal
+Character::Character()
 {
-	protected:
-		std::string type;
-	public:
-		WrongAnimal();
-		WrongAnimal(WrongAnimal const &obj);
-		WrongAnimal &operator=(WrongAnimal const &obj);
-		~WrongAnimal();
+}
 
-		std::string	getType() const;
-		void		makeSound() const;
-};
+Character::~Character()
+{
+}
 
-#endif
+Character::Character(Character const &obj)
+{
+	if (this != &obj)
+		*this = obj;
+}
+
+Character	&Character::operator=(Character const &obj)
+{
+	if (this != &obj)
+	{
+
+	}
+	return (*this);
+}

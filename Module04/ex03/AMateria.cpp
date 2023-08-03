@@ -1,32 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/29 20:31:56 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/31 16:07:05 by mdi-paol         ###   ########.fr       */
+/*   Created: 2023/07/31 15:19:14 by mdi-paol          #+#    #+#             */
+/*   Updated: 2023/08/03 17:42:39 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#include "AMateria.hpp"
 
-#include <iostream>
-
-class WrongAnimal
+AMateria::AMateria()
 {
-	protected:
-		std::string type;
-	public:
-		WrongAnimal();
-		WrongAnimal(WrongAnimal const &obj);
-		WrongAnimal &operator=(WrongAnimal const &obj);
-		~WrongAnimal();
+}
 
-		std::string	getType() const;
-		void		makeSound() const;
-};
+AMateria::~AMateria()
+{
+}
 
-#endif
+AMateria::AMateria(std::string const &type) : _type(type)
+{
+}
+
+AMateria::AMateria(AMateria const &obj)
+{
+	if (this != &obj)
+		*this = obj;
+}
+
+AMateria	&AMateria::operator=(AMateria const &obj)
+{
+	if (this != &obj)
+	{
+
+	}
+	return (*this);
+}
+
+std::string const	&AMateria::getType() const
+{
+	return (_type);
+}
+
+
+

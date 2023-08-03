@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/29 20:31:56 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/31 16:07:05 by mdi-paol         ###   ########.fr       */
+/*   Created: 2023/08/03 17:46:38 by mdi-paol          #+#    #+#             */
+/*   Updated: 2023/08/03 17:48:03 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
-
 #include <iostream>
+#include "AMateria.hpp"
 
-class WrongAnimal
+class ICharacter
 {
-	protected:
-		std::string type;
 	public:
-		WrongAnimal();
-		WrongAnimal(WrongAnimal const &obj);
-		WrongAnimal &operator=(WrongAnimal const &obj);
-		~WrongAnimal();
-
-		std::string	getType() const;
-		void		makeSound() const;
+		virtual ~ICharacter() {}
+		virtual std::string const & getName() const = 0;
+		virtual void equip(AMateria* m) = 0;
+		virtual void unequip(int idx) = 0;
+		virtual void use(int idx, ICharacter& target) = 0;
 };
-
-#endif

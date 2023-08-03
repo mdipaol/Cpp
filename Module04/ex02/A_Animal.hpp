@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:08:18 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/30 19:37:35 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/31 16:08:50 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class A_Animal
 		virtual ~A_Animal();
 
 		virtual std::string	getType() const;
-		virtual void		makeSound() const;
+		virtual void		makeSound() const = 0;
 };
 
 #endif

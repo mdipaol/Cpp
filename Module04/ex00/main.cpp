@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:07:37 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/29 23:24:39 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/07/31 16:08:36 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main()
 	delete j;
 	delete i;
 
-	// Wrong Test
+	//Wrong Test
 	// const WrongAnimal* meta = new WrongAnimal();
 	// const WrongAnimal* j = new WrongCat();
 

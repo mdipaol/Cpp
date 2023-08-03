@@ -1,32 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/29 20:31:56 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/31 16:07:05 by mdi-paol         ###   ########.fr       */
+/*   Created: 2023/08/01 00:10:18 by mdi-paol          #+#    #+#             */
+/*   Updated: 2023/08/03 18:00:48 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#include "Cure.hpp"
 
-#include <iostream>
-
-class WrongAnimal
+Cure::Cure()
 {
-	protected:
-		std::string type;
-	public:
-		WrongAnimal();
-		WrongAnimal(WrongAnimal const &obj);
-		WrongAnimal &operator=(WrongAnimal const &obj);
-		~WrongAnimal();
+	this->_type = "cure";
+}
 
-		std::string	getType() const;
-		void		makeSound() const;
-};
+Cure::~Cure()
+{
+}
 
-#endif
+Cure::Cure(Cure const &obj)
+{
+	if (this != &obj)
+		*this = obj;
+}
+
+Cure	&Cure::operator=(Cure const &obj)
+{
+	if (this != &obj)
+	{
+
+	}
+	return (*this);
+}
+
+AMateria	*Cure::clone() const
+{
+	return (new Cure(*this));
+}

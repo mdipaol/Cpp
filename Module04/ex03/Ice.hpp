@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/29 20:31:56 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/31 16:07:05 by mdi-paol         ###   ########.fr       */
+/*   Created: 2023/08/01 00:10:24 by mdi-paol          #+#    #+#             */
+/*   Updated: 2023/08/03 17:57:45 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
-
 #include <iostream>
+#include "AMateria.hpp"
+#include "ICharacter.hpp"
 
-class WrongAnimal
+class Ice : public AMateria
 {
-	protected:
-		std::string type;
+	private:
+
 	public:
-		WrongAnimal();
-		WrongAnimal(WrongAnimal const &obj);
-		WrongAnimal &operator=(WrongAnimal const &obj);
-		~WrongAnimal();
+		Ice();
+		Ice(Ice const &obj);
+		Ice	&operator=(Ice const &obj);
+		~Ice();
 
-		std::string	getType() const;
-		void		makeSound() const;
+		AMateria *clone() const;
+		void use(ICharacter& target);
 };
-
-#endif
