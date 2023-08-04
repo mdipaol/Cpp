@@ -6,12 +6,12 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:10:41 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/30 19:42:12 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/08/04 19:35:52 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
-#include "A_Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
 Dog::Dog()
@@ -27,7 +27,7 @@ Dog::~Dog()
 	delete this->brain;
 }
 
-Dog::Dog(Dog const &obj) : A_Animal()
+Dog::Dog(Dog const &obj) : AAnimal()
 {
 	std::cout << "Dog Copy Constructor Called" << std::endl;
 	if (this != &obj)

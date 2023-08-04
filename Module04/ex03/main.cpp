@@ -5,30 +5,35 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/26 00:29:48 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/08/04 17:47:32 by mdi-paol         ###   ########.fr       */
+/*   Created: 2023/08/04 10:44:04 by mdi-paol          #+#    #+#             */
+/*   Updated: 2023/08/04 14:26:13 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
-#include "DiamondTrap.hpp"
+#include "AMateria.hpp"
+#include "Character.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
+#include "MateriaSource.hpp"
 
-int	main()
+int main()
 {
-	DiamondTrap c("mdi_paol");
-	FragTrap wow("fantastic");
-	ScavTrap mdipaol("mdipaol");
-	ClapTrap user42("user42");
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	ICharacter* me = new Character("me");
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	ICharacter	*bob = new Character("bob");
+	me->use(0, *bob);
+	me->use(1, *bob);
 
-	c.whoAmI();
-	mdipaol.attack("lol");
-	wow.attack("boh");
-	wow.highFivesGuy();
-	mdipaol.guardGate();
-	user42.attack("mdi-paol");
-	for (int i = 0; i < 50; i++)
-		mdipaol.beRepaired(10);
-	mdipaol.takeDamage(5);
+	delete bob;
+	delete me;
+	delete src;
+
+	return 0;
 }

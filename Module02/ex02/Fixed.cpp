@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 11:14:11 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/24 19:56:44 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/08/04 16:35:42 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,14 +149,14 @@ const Fixed &Fixed::min(const Fixed &obj1, const Fixed &obj2)
 
 Fixed &Fixed::max(Fixed &obj1, Fixed &obj2)
 {
-	if (obj1.getRawBits() > obj2.getRawBits())
+	if (obj1 > obj2)
 		return(obj1);
 	return (obj2);
 }
 
 const Fixed &Fixed::max(const Fixed &obj1, const Fixed &obj2)
 {
-	if (obj1.getRawBits() > obj2.getRawBits())
+	if (obj1 > obj2)
 		return(obj1);
 	return (obj2);
 }

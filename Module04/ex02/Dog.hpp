@@ -6,17 +6,17 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:10:06 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/30 19:43:20 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/08/04 19:33:31 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DOG_HPP
 # define DOG_HPP
 
-#include "A_Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Dog : public A_Animal
+class Dog : public AAnimal
 {
 	private:
 		Brain *brain;

@@ -6,12 +6,16 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 17:46:38 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/08/03 17:48:03 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/08/04 14:08:21 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
 #include <iostream>
 #include "AMateria.hpp"
+
+class AMateria;
 
 class ICharacter
 {

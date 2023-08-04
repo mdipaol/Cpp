@@ -10,8 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = A_Animal
-SRCS = main.cpp A_Animal.cpp Cat.cpp Dog.cpp Brain.cpp
+NAME = AAnimal
+SRCS = main.cpp AAnimal.cpp Cat.cpp Dog.cpp Brain.cpp
 CC = c++
 FLAGS = -Wall -Werror -Wextra -std=c++98
 OBJS = $(SRCS:.cpp=.o)

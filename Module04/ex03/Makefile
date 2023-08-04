@@ -6,14 +6,14 @@
 #    By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 14:39:03 by mdi-paol          #+#    #+#              #
-#    Updated: 2023/08/01 00:32:45 by mdi-paol         ###   ########.fr        #
+#    Updated: 2023/08/04 14:20:43 by mdi-paol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = A_Animal
-SRCS = main.cpp AMaterial.cpp Cure.cpp Ice.cpp
+NAME = Material
+SRCS = main.cpp AMateria.cpp Cure.cpp Ice.cpp MateriaSource.cpp Character.cpp
 CC = c++
-FLAGS = -Wall -Werror -Wextra -std=c++98
+FLAGS = -Wall -Werror -Wextra -g -std=c++98
 OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)

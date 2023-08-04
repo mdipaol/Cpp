@@ -6,12 +6,12 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:09:51 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/07/30 19:41:47 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/08/04 19:34:14 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
-#include "A_Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
 Cat::Cat()
@@ -27,7 +27,7 @@ Cat::~Cat()
 	delete this->brain;
 }
 
-Cat::Cat(Cat const &obj) : A_Animal(obj)
+Cat::Cat(Cat const &obj) : AAnimal(obj)
 {
 	std::cout << "Cat Copy Constructor Called" << std::endl;
 	if (this != &obj)

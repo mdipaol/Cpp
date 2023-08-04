@@ -6,9 +6,11 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 00:10:24 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/08/03 17:57:45 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/08/04 14:08:17 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #include <iostream>
 #include "AMateria.hpp"
