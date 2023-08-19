@@ -6,29 +6,41 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 15:55:26 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/08/18 17:11:38 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/08/19 11:46:36 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
 #include <iostream>
 
 class Bureaucrat
 {
 	private:
-		const std::string	name;
-		int					grade;
+		const std::string	_name;
+		int					_grade;
 	public:
-		class GradeTooHighExcception : public std::exception
+		class GradeTooHighException : public std::exception
 		{
 			public:
-				virtual const char *what() const throw();
+				const char *what() const throw();
 		};
 		class GradeTooLowExcception : public std::exception
 		{
 			public:
-				virtual const char *what() const throw();
+				const char *what() const throw();
 		};
 		Bureaucrat();
+		Bureaucrat(std::string& name, int grade);
+		Bureaucrat(Bureaucrat const &obj);
+		Bureaucrat& operator=(Bureaucrat const& obj);
 		~Bureaucrat();
+
+		std::string getName();
+		int			getGrade();
+		void		upgrade();
+		void		downgrade();
 };
 
+#endif
