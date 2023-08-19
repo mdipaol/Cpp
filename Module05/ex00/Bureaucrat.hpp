@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 15:55:26 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/08/19 11:46:36 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/08/19 12:07:15 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Bureaucrat
 			public:
 				const char *what() const throw();
 		};
-		class GradeTooLowExcception : public std::exception
+		class GradeTooLowException : public std::exception
 		{
 			public:
 				const char *what() const throw();
@@ -42,5 +42,7 @@ class Bureaucrat
 		void		upgrade();
 		void		downgrade();
 };
+
+std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj);
 
 #endif
