@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 15:55:26 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/08/19 14:08:29 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/08/23 19:04:03 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define BUREAUCRAT_HPP
 
 #include <iostream>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -41,6 +44,7 @@ class Bureaucrat
 		int			getGrade() const;
 		void		upgrade();
 		void		downgrade();
+		void		signForm(Form &obj);
 };
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj);

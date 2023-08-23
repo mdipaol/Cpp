@@ -6,11 +6,12 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 15:54:42 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/08/19 14:25:38 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/08/23 19:11:24 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int	main()
 {
@@ -31,18 +32,30 @@ int	main()
 	{
 		std::string chooser;
 		Bureaucrat bureaucrat(name, grade);
-		std::cout << "Do you want an UPGRADE or DOWNGRADE?" << std::endl;
-		std::getline(std::cin, chooser);
-		if (chooser.compare("UPGRADE") == 0)
+		std::cout << bureaucrat;
+		std::string form_name;
+		std::string is_signed;
+		int grade_sign;
+		int grade_exec;
+		std::cout << "Insert Form Name" << std::endl;
+		std::getline(std::cin, form_name);
+		std::cout << "Insert grade to sign the form" << std::endl;
+		std::cin >> grade_sign;
+		if (grade_sign > 150 || grade_sign < 1)
 		{
-			bureaucrat.upgrade();
-			std::cout << bureaucrat;
+			std::cerr << "ERROR: Please insert a grade from 1 to 150" << std::endl;
+			return (0);
 		}
-		else if (chooser.compare("DOWNGRADE") == 0)
+		std::cout << "Insert grade to execute the form" << std::endl;
+		std::cin >> grade_exec;
+		if (grade_exec > 150 || grade_exec < 1)
 		{
-			bureaucrat.downgrade();
-			std::cout << bureaucrat;
+			std::cerr << "ERROR: Please insert a grade from 1 to 150" << std::endl;
+			return (0);
 		}
+		Form form(form_name, grade_sign, grade_exec);
+		bureaucrat.signForm(form);
+		std::cout << "Form information: " << form;
 	}
 	catch(const std::exception& e)
 	{
