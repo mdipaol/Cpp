@@ -6,18 +6,19 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 15:08:38 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/08/24 19:14:07 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/09/09 17:25:14 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AFORM_HPP
 # define AFORM_HPP
 
+#include <iostream>
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	private:
 		const std::string _name;
@@ -35,20 +36,25 @@ class Form
 			public:
 				const char *what() const throw();
 		};
-		Form();
-		Form(std::string& name, int gradeReqSign, int gradeReqExec);
-		Form(Form const &obj);
-		Form &operator=(Form const &obj);
-		~Form();
+		class IsNotSigned : public std::exception
+		{
+			public:
+				const char* what() const throw();
+		};
+		AForm();
+		AForm(const std::string& name, const int gradeReqSign, const int gradeReqExec);
+		AForm(AForm const &obj);
+		AForm &operator=(AForm const &obj);
+		~AForm();
 		std::string getName() const;
 		bool		getIsSigned() const;
 		int			getGradeReqSign() const;
 		int		getGradeReqExec() const;
 		void	beSigned(Bureaucrat &obj);
 
-		virtual execute(Bureaucrat const & executor) const = 0;
+		virtual void	execute(Bureaucrat const &executor) const = 0;
 };
 
-std::ostream& operator<<(std::ostream& out, const Form& obj);
+std::ostream& operator<<(std::ostream& out, const AForm& obj);
 
 #endif

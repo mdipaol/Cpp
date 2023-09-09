@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 15:55:26 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/08/23 19:24:11 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/09/09 17:25:15 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ class Bureaucrat
 		int			getGrade() const;
 		void		upgrade();
 		void		downgrade();
-		void		signForm(Form &obj);
+		void		signForm(AForm &obj);
 };
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj);
