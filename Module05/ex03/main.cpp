@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 15:54:42 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/09/10 17:40:37 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/09/10 19:17:27 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int	main()
 {
 	try
 	{
 		std::string name;
+		std::string target;
 		int grade;
 		int	nb_form;
 
@@ -37,35 +39,10 @@ int	main()
 		std::cout << "Choose a form:" << std::endl;
 		std::cout << "(1) Shrubbery | (2) Robotmy | (3) Presidential" << std::endl;
 		std::cin >> nb_form;
-		switch (nb_form)
-		{
-			case 1:
-			{
-				ShrubberyCreationForm form1("Shrubbery");
-				bureaucrat.signForm(form1);
-				bureaucrat.executeForm(form1);
-				break;
-			}
-			case 2:
-			{
-				RobotomyReequestForm form2("Robotmy");
-				bureaucrat.signForm(form2);
-				bureaucrat.executeForm(form2);
-				bureaucrat.executeForm(form2);
-				bureaucrat.executeForm(form2);
-				bureaucrat.executeForm(form2);
-				break;
-			}
-			case 3:
-			{
-				PresidentialPardonForm form3("Presidential");
-				bureaucrat.signForm(form3);
-				bureaucrat.executeForm(form3);
-				break;
-			}
-			default:
-				return (0);
-		}
+		std::cout << "Insert a target:" << std::endl;
+		std::getline(std::cin, target);
+		Intern	intern;
+		i
 	}
 	catch(const std::exception& e)
 	{
