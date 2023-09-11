@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 17:57:04 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/09/10 18:56:17 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/09/11 09:56:18 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,5 @@ AForm	*Intern::makeForm(const std::string &form, const std::string &target)
 		if (form == formNames[i])
 			return function[i](target);
 	}
+	return (NULL);
 }

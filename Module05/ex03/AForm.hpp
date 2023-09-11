@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 15:08:38 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/09/10 15:38:24 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/09/11 10:02:29 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ class AForm
 		AForm(const std::string& name, int gradeReqSign, int gradeReqExec);
 		AForm(AForm const &obj);
 		AForm &operator=(AForm const &obj);
-		~AForm();
+		virtual ~AForm();
 		std::string getName() const;
 		bool		getIsSigned() const;
 		int			getGradeReqSign() const;
