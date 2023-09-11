@@ -6,11 +6,14 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:11:14 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/09/11 19:18:25 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/09/11 20:06:38 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string>
 #include <iostream>
+#include <cstdlib>
+#include <limits>
 
 class ScalarConverter
 {
@@ -20,11 +23,11 @@ class ScalarConverter
 		ScalarConverter &operator=(ScalarConverter const &obj);
 		~ScalarConverter();
 
-		static char		_char;
+/* 		static char		_char;
 		static int		_int;
 		static float	_float;
 		static double	_double;
-		static bool		_inf;
+		static bool		_inf; */
 
 	public:
 		static void	convert(const std::string &str);
@@ -33,6 +36,6 @@ class ScalarConverter
 		static bool	is_int(const std::string &str);
 		static bool	is_floatdouble(const std::string &str);
 		static void	conv_char(const std::string &str);
-		static void	conv_int(const std::string &str);
-		static void	conv_floatdouble(const std::string &str);
+		//static void	conv_int(const std::string &str);
+		//static void	conv_floatdouble(const std::string &str);
 };

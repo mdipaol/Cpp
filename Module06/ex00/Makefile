@@ -6,14 +6,15 @@
 #    By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 14:39:03 by mdi-paol          #+#    #+#              #
-#    Updated: 2023/09/11 11:13:12 by mdi-paol         ###   ########.fr        #
+#    Updated: 2023/09/11 20:07:49 by mdi-paol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Convert
-SRCS = main.cpp ScalarConvert.cpp
+SRCS = main.cpp ScalarConverter.cpp
 FLAGS = -Wall -Werror -Wextra -std=c++98
 OBJS = $(SRCS:.cpp=.o)
+CC = c++
 
 all : $(NAME)
 

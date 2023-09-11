@@ -6,12 +6,12 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:11:09 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/09/11 12:38:52 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/09/11 20:05:45 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "ScalarConverter.hpp"
+#include <string>
 
 int	main(int argc, char **argv)
 {

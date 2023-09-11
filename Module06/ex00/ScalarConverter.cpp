@@ -6,16 +6,16 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:11:12 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/09/11 19:27:17 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/09/11 20:06:45 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-char	ScalarConverter::_char;
-int		ScalarConverter::_int;
-float	ScalarConverter::_float;
-double	ScalarConverter::_double;
+/* \\char	ScalarConverter::_char = 0;
+int		ScalarConverter::_int = 0;
+float	ScalarConverter::_float = 0;
+double	ScalarConverter::_double = 0; */
 
 ScalarConverter::ScalarConverter()
 {
@@ -41,9 +41,7 @@ ScalarConverter	&ScalarConverter::operator=(ScalarConverter const &obj)
 
 bool	ScalarConverter::is_char(const std::string &str)
 {
-	int	i;
-
-	if (str.length() == 1 && !isdigit(str[1]))
+	if (str.length() == 1 && !std::isdigit(str[1]))
 		return true;
 	return false;
 }
@@ -57,10 +55,11 @@ bool	ScalarConverter::is_int(const std::string &str)
 		i++;
 	while (i < size)
 	{
-		if (!isdigit(str[i]))
+		if (!std::isdigit(str[i]))
 			return false;
 		return true;
 	}
+	return false;
 }
 
 bool	ScalarConverter::is_floatdouble(const std::string &str)
@@ -71,7 +70,7 @@ bool	ScalarConverter::is_floatdouble(const std::string &str)
 
 	if (str[i] == '+' || str[i] == '-')
 		i++;
-	while (i = str.find('.', i) != std::string::npos)
+	while ((i = str.find('.', i)) != std::string::npos)
 	{
 		point++;
 		if (point > 1)
@@ -82,11 +81,11 @@ bool	ScalarConverter::is_floatdouble(const std::string &str)
 		return (false);
 	while (i < size - 1)
 	{
-		if (!isdigit(str[i]) && str[i] != '.')
+		if (!std::isdigit(str[i]) && str[i] != '.')
 			return(false);
 		i++;
 	}
-	if (!isdigit(str[i]) && str[i] != 'f')
+	if (!std::isdigit(str[i]) && str[i] != 'f')
 		return(false);
 	return(true);
 }
@@ -109,10 +108,10 @@ void	ScalarConverter::convert(const std::string &str)
 {
 	if (is_char(str))
 		conv_char(str);
-	else if (is_int(str))
+	/* else if (is_int(str))
 		conv_int(str);
 	else if (is_floatdouble(str))
-		conv_floatdouble(str);
+		conv_floatdouble(str); */
 
 }
 
