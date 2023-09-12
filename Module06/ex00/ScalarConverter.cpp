@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:11:12 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/09/12 19:02:25 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/09/12 19:08:59 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,7 +186,7 @@ void	ScalarConverter::conv_floatdouble(const std::string &str)
 	else
 	{
 		char *endptr;
-		long long float f = std::strtod(str.c_str(), &endptr);
+		float f = std::strtod(str.c_str(), &endptr);
 		if (is_char_print(static_cast<int>(f)))
 			std::cout << "Char: '" << static_cast<char>(f) << "'" << std::endl;
 		else
