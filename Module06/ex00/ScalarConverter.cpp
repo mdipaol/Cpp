@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:11:12 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/09/12 19:08:59 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/09/13 18:25:34 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ bool	ScalarConverter::is_floatdouble(const std::string &str)
 	}
 	if (point == 0)
 		return (false);
+	i = 0;
 	while (i < size - 1)
 	{
 		if (!std::isdigit(str[i]) && str[i] != '.')
@@ -125,11 +126,11 @@ void	ScalarConverter::conv_int(const std::string &str)
 	if (is_int_overflow(a))
 		std::cout << "Int: " << static_cast<int>(a) << std::endl;
 	else
-		std::cout << "Int: " << "overflow" << std::endl;
-	if (is_float_overflow(static_cast<float>(a)))
-		std::cout << "Float: " << static_cast<float>(a) << "f" << std::endl;
-	else
-		std::cout << "Float: " << "overflow" << std::endl;
+	{
+		std::cout << "Int: " << "overflow " << std::endl;
+		std::cout << "|Next conversion may not be accurate|" << std::endl;
+	}
+	std::cout << "Float: " << static_cast<float>(a) << "f" << std::endl;
 	std::cout << "Double: " << static_cast<double>(a) << std::endl;
 }
 
@@ -144,6 +145,8 @@ bool	ScalarConverter::is_int_overflow(long long int a)
 {
 	if (a >= INT_MAX)
 		return false;
+	if (a <= INT_MIN)
+		return false;
 	return true;
 }
 
@@ -154,12 +157,37 @@ bool	ScalarConverter::is_float_overflow(float f)
 	return true;
 }
 
-/* bool	ScalarConverter::is_double_overflow(double f)
+bool	ScalarConverter::is_double_overflow(double f)
 {
 	if (std::isinf(f))
 		return false;
 	return true;
-} */
+}
+
+void	ScalarConverter::is_inf(const std::string &str)
+{
+	if (!str.compare("nan") || !str.compare("nanf"))
+	{
+		std::cout << "Char: impossible" << std::endl;
+		std::cout << "Int: impossible" << std::endl;
+		std::cout << "Float: nanf" << std::endl;
+		std::cout << "Double: nan" << std::endl;
+	}
+	else if (!str.compare("+inff") || !str.compare("inff") || !str.compare("inf") || !str.compare("+inf"))
+	{
+		std::cout << "Char: impossible" << std::endl;
+		std::cout << "Int: impossible" << std::endl;
+		std::cout << "Float: inff" << std::endl;
+		std::cout << "Double: inf" << std::endl;
+	}
+	else if (!str.compare("-inff") || !str.compare("-inff") || !str.compare("-inf") || !str.compare("-inf"))
+	{
+		std::cout << "Char: impossible" << std::endl;
+		std::cout << "Int: impossible" << std::endl;
+		std::cout << "Float: -inff" << std::endl;
+		std::cout << "Double: -inf" << std::endl;
+	}
+}
 
 void	ScalarConverter::conv_floatdouble(const std::string &str)
 {
@@ -181,42 +209,44 @@ void	ScalarConverter::conv_floatdouble(const std::string &str)
 			std::cout << "Float: " << f << "f" << std::endl;
 		else
 			std::cout << "Float: " << "overflow" << std::endl;
-		std::cout << "Double: " << static_cast<double>(f) << std::endl;
+		if (is_double_overflow(static_cast<double>(f)))
+			std::cout << "Double: " << static_cast<double>(f) << std::endl;
+		else
+			std::cout << "Double: " << "overflow" << std::endl;
 	}
 	else
 	{
 		char *endptr;
-		float f = std::strtod(str.c_str(), &endptr);
-		if (is_char_print(static_cast<int>(f)))
-			std::cout << "Char: '" << static_cast<char>(f) << "'" << std::endl;
+		double d = std::strtod(str.c_str(), &endptr);
+		if (is_char_print(static_cast<int>(d)))
+			std::cout << "Char: '" << static_cast<char>(d) << "'" << std::endl;
 		else
 			std::cout << "Char: '" << "impossible" << "'" << std::endl;
-		if (is_int_overflow(static_cast<int>(f)))
-			std::cout << "Int: " << static_cast<int>(f) << std::endl;
+		if (is_int_overflow(static_cast<int>(d)))
+			std::cout << "Int: " << static_cast<int>(d) << std::endl;
 		else
 			std::cout << "Int: " << "overflow" << std::endl;
-		if (is_float_overflow(f))
-			std::cout << "Float: " << f << "f" << std::endl;
+		if (is_float_overflow(static_cast<float>(d)))
+			std::cout << "Float: " << static_cast<float>(d) << "f" << std::endl;
 		else
 			std::cout << "Float: " << "overflow" << std::endl;
-		std::cout << "Double: " << static_cast<double>(f) << std::endl;
+		if (is_double_overflow(d))
+			std::cout << "Double: " << d << std::endl;
+		else
+			std::cout << "Double: " << "overflow" << std::endl;
 	}
 }
 
 void	ScalarConverter::convert(const std::string &str)
 {
-	if (is_char(str))
+	if (!str.compare("nan") || !str.compare("nanf") | !str.compare("+inf") || !str.compare("-inf") || !str.compare("inf") || !str.compare("+inff") || !str.compare("-inff") || !str.compare("inff"))
+		is_inf(str);
+	else if (is_char(str))
 		conv_char(str);
 	else if (is_int(str))
 		conv_int(str);
 	else if (is_floatdouble(str))
 		conv_floatdouble(str);
+	else
+		std::cout << "Insert a correct literal" << std::endl;
 }
-
-/* void	ScalarConverter::convert(const std::string &str)
-{
-	int	type = recognize_type(str);
-
-
-}
- */
