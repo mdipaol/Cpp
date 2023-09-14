@@ -6,16 +6,11 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:11:12 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/09/13 18:25:34 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/09/14 12:15:03 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-
-/* \\char	ScalarConverter::_char = 0;
-int		ScalarConverter::_int = 0;
-float	ScalarConverter::_float = 0;
-double	ScalarConverter::_double = 0; */
 
 ScalarConverter::ScalarConverter()
 {
@@ -41,7 +36,7 @@ ScalarConverter	&ScalarConverter::operator=(ScalarConverter const &obj)
 
 bool	ScalarConverter::is_char(const std::string &str)
 {
-	if (str.length() == 1 && !std::isdigit(str[1]))
+	if (str.length() == 1 && !std::isdigit(str[0]))
 		return true;
 	return false;
 }
@@ -50,7 +45,7 @@ bool	ScalarConverter::is_int(const std::string &str)
 {
 	size_t	i = 0;
 	size_t	size = str.length();
-
+	;
 	if (str[i] == '+' || str[i] == '-')
 		i++;
 	while (i < size)
@@ -87,9 +82,7 @@ bool	ScalarConverter::is_floatdouble(const std::string &str)
 		i++;
 	}
 	if (str[i] && !std::isdigit(str[i]) && str[i] != 'f' && str[i] != '.')
-	{
 		return(false);
-	}
 	return(true);
 }
 
@@ -122,7 +115,7 @@ void	ScalarConverter::conv_int(const std::string &str)
 	if (is_char_print(static_cast<int>(a)))
 		 std::cout << "Char: '" << static_cast<char>(a) << "'" << std::endl;
 	else
-		std::cout << "Char: '" << "impossible" << "'" << std::endl;
+		std::cout << "Char: " << "Non displayable" << std::endl;
 	if (is_int_overflow(a))
 		std::cout << "Int: " << static_cast<int>(a) << std::endl;
 	else
@@ -130,8 +123,8 @@ void	ScalarConverter::conv_int(const std::string &str)
 		std::cout << "Int: " << "overflow " << std::endl;
 		std::cout << "|Next conversion may not be accurate|" << std::endl;
 	}
-	std::cout << "Float: " << static_cast<float>(a) << "f" << std::endl;
-	std::cout << "Double: " << static_cast<double>(a) << std::endl;
+	std::cout << "Float: " << static_cast<float>(a) << ".0f" << std::endl;
+	std::cout << "Double: " << static_cast<double>(a) << ".0" << std::endl;
 }
 
 bool	ScalarConverter::is_char_print(int a)
@@ -193,45 +186,55 @@ void	ScalarConverter::conv_floatdouble(const std::string &str)
 {
 	if (is_float(str))
 	{
+		int i = str.find('.');
 		std::string new_float = str;
 		new_float.erase(new_float.size() - 1);
 		char *endptr;
 		float f = std::strtof(str.c_str(), &endptr);
 		if (is_char_print(static_cast<int>(f)))
-			std::cout << "Char: '" << static_cast<char>(f) << "'" << std::endl;
+			std::cout << "Char: " << static_cast<char>(f) << std::endl;
 		else
-			std::cout << "Char: '" << "impossible" << "'" << std::endl;
+			std::cout << "Char: " << "Non displayable" << std::endl;
 		if (is_int_overflow(static_cast<int>(f)))
 			std::cout << "Int: " << static_cast<int>(f) << std::endl;
 		else
 			std::cout << "Int: " << "overflow" << std::endl;
-		if (is_float_overflow(f))
+		if (is_float_overflow(f) && str.find('.') != std::string::npos && str[i+2] != '\0' && str[i+2] != 'f')
 			std::cout << "Float: " << f << "f" << std::endl;
+		else if((str.find('.')) != std::string::npos)
+			std::cout << "Float: " << f << ".0f" << std::endl;
 		else
 			std::cout << "Float: " << "overflow" << std::endl;
-		if (is_double_overflow(static_cast<double>(f)))
+		if (is_double_overflow(static_cast<double>(f)) && str.find('.') != std::string::npos && str[i+2] != '\0' && str[i+2] != 'f')
 			std::cout << "Double: " << static_cast<double>(f) << std::endl;
+		else if ((str.find('.')) != std::string::npos)
+			std::cout << "Double: " << f << ".0" << std::endl;
 		else
 			std::cout << "Double: " << "overflow" << std::endl;
 	}
 	else
 	{
+		int i = str.find('.');
 		char *endptr;
 		double d = std::strtod(str.c_str(), &endptr);
 		if (is_char_print(static_cast<int>(d)))
 			std::cout << "Char: '" << static_cast<char>(d) << "'" << std::endl;
 		else
-			std::cout << "Char: '" << "impossible" << "'" << std::endl;
+			std::cout << "Char: " << "Non displayable" << std::endl;
 		if (is_int_overflow(static_cast<int>(d)))
 			std::cout << "Int: " << static_cast<int>(d) << std::endl;
 		else
 			std::cout << "Int: " << "overflow" << std::endl;
-		if (is_float_overflow(static_cast<float>(d)))
+		if (is_float_overflow(static_cast<float>(d)) && str.find('.') != std::string::npos && str[i+2] != '\0')
 			std::cout << "Float: " << static_cast<float>(d) << "f" << std::endl;
+		else if((str.find('.')) != std::string::npos)
+			std::cout << "Float: " << d << ".0f" << std::endl;
 		else
 			std::cout << "Float: " << "overflow" << std::endl;
-		if (is_double_overflow(d))
+		if (is_double_overflow(d) && str.find('.') != std::string::npos && str[i+2] != '\0')
 			std::cout << "Double: " << d << std::endl;
+		else if ((str.find('.')) != std::string::npos)
+			std::cout << "Double: " << d << ".0" << std::endl;
 		else
 			std::cout << "Double: " << "overflow" << std::endl;
 	}

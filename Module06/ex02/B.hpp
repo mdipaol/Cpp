@@ -6,22 +6,19 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 19:36:07 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/09/13 19:40:20 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/09/13 20:17:46 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "Base.hpp"
 
 #ifndef B_HPP
 #define B_HPP
 
 #include "Base.hpp"
 
-class B : Base
+class B : public Base
 {
 public:
 
-private:
 };
 
 #endif

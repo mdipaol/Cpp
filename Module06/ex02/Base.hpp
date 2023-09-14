@@ -6,16 +6,17 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 19:33:51 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/09/13 19:35:33 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/09/13 20:19:03 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef BASE_HPP
+#define BASE_HPP
 
 class Base
 {
-private:
-
-public:
-	virtual ~Base();
+	public:
+		virtual ~Base(){};
 };
+
+#endif

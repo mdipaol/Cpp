@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 19:36:09 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/09/13 19:40:10 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/09/13 20:17:37 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 
 #include "Base.hpp"
 
-class A : Base
+class A : public Base
 {
 public:
 
-private:
 };
 
 #endif
