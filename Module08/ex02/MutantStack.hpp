@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 17:48:03 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/09/24 18:54:12 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/09/24 18:56:56 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,16 @@ public:
 		return *this;}
 	typedef typename std::stack<T>::container_type::iterator iterator;
 	typedef typename std::stack<T>::container_type::const_iterator const_iterator;
-	
+
 	iterator begin() {
 		return std::stack<T>::c.begin();
 	}
-
 	iterator end() {
 		return std::stack<T>::c.end();
 	}
-
 	const_iterator begin() const {
 		return std::stack<T>::c.begin();
 	}
-
 	const_iterator end() const {
 		return std::stack<T>::c.end();
 	}
