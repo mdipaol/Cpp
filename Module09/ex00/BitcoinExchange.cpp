@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:45:52 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/09/27 19:09:21 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/09/27 19:13:01 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ BitcoinExchange::~BitcoinExchange(){}
 
 BitcoinExchange::BitcoinExchange(std::string path) : _inputPath(path){
 	createDb();
+	
 }
 
 void	BitcoinExchange::createDb(){
@@ -38,7 +39,7 @@ void	BitcoinExchange::createDb(){
 		}
 		inputFile.close();
 	}
-	else{
-		std::cerr << "Insert a correct Path!" << std::endl;
+	else {
+		std::cerr << "Insert a correct data.csv!" << std::endl;
 	}
 }
