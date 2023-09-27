@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:44:23 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/09/27 19:27:45 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/09/27 19:28:52 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ class BitcoinExchange
 		~BitcoinExchange();
 
 		void createDb();
-		void test();
 };
 
 #endif
