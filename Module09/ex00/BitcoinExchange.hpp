@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:44:23 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/09/27 17:40:46 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/09/27 18:10:35 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ class BitcoinExchange
 {
 	private:
 		std::map<std::string, float> _database;
-		std::string	_path;
+		std::string	_inputPath;
 	public:
 		BitcoinExchange();
 		BitcoinExchange(std::string path);
 		~BitcoinExchange();
+
 		void createDb();
 };
 

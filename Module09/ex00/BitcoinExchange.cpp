@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:45:52 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/09/27 17:59:03 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/09/27 19:09:21 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ BitcoinExchange::BitcoinExchange(){}
 
 BitcoinExchange::~BitcoinExchange(){}
 
-BitcoinExchange::BitcoinExchange(std::string path) : _path(){
+BitcoinExchange::BitcoinExchange(std::string path) : _inputPath(path){
 	createDb();
 }
 
 void	BitcoinExchange::createDb(){
-	std::ifstream inputFile(this->_path.c_str());
+	std::ifstream inputFile("data.csv");
 
 	if (inputFile.is_open()){
 		std::string line;
@@ -40,9 +40,5 @@ void	BitcoinExchange::createDb(){
 	}
 	else{
 		std::cerr << "Insert a correct Path!" << std::endl;
-	}
-	for (std::map<std::string, float>::const_iterator it = this->_database.begin(); it != this->_database.end(); ++it)
-	{
-		std::cout << "Date: " << it->first << ", Value: " << it->second << std::endl;
 	}
 }
