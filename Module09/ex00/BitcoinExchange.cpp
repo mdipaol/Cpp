@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:45:52 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/09/28 13:00:34 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/09/28 17:16:06 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,10 @@ bool	BitcoinExchange::checkError(std::map<std::string, float>::const_iterator it
 void	BitcoinExchange::checkPrint(std::string date, float value){
 	std::map<std::string, float>::const_iterator it;
 	for (it = this->_database.begin(); it != this->_database.end(); ++it){
-		//std::cout << it->first << " " << date << std::endl;
-		if (!it->first.compare(date)){
+		//std::cout << it->first.compare(date) << std::endl;
+		if (it->first == date){
 			float newValue = it->second * value;
-			std::cout << date << "=>" << it->second << "=" << newValue << std::cout;
+			std::cout << date << " => " << it->second << " = " << newValue << std::endl;
 		}
 		else{
 			std::string newDate;
@@ -76,7 +76,7 @@ void	BitcoinExchange::checkPrint(std::string date, float value){
 				return ;
 			}
 			else
-				std::cout << "error" << std::endl;
+				return ;
 		}
 	}
 }
@@ -94,7 +94,11 @@ void	BitcoinExchange::importInput(){
 			double value;
 
 			if (iss >> value){
+				date.erase(date.size() - 1);
 				checkPrint(date, value);
+			}
+			else{
+				std::cout << "Error: bad input => " << date << std::endl;
 			}
 		}
 		inputFile.close();
