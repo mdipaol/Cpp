@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:44:23 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/09/27 19:28:52 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/09/28 12:46:54 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ class BitcoinExchange
 		~BitcoinExchange();
 
 		void createDb();
+		void importInput();
+		void checkPrint(std::string date, float value);
+		bool checkError(std::map<std::string, float>::const_iterator it, std::string date);
 };
 
 #endif
