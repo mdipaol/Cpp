@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:45:52 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/09/28 17:16:06 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/09/29 12:07:36 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,9 +96,11 @@ void	BitcoinExchange::importInput(){
 			if (iss >> value){
 				date.erase(date.size() - 1);
 				checkPrint(date, value);
+				std::cout << date << std::endl;
 			}
 			else{
-				std::cout << "Error: bad input => " << date << std::endl;
+				
+				//std::cout << "Error: bad input => " << date << std::endl;
 			}
 		}
 		inputFile.close();
