@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 19:40:35 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/09/13 20:32:53 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/10/03 18:26:14 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 
 Base	*generate(void)
 {
-	srand(time(NULL));
 	int a = (std::rand() % 3) + 1;
 	switch (a)
 	{
@@ -94,6 +93,7 @@ void	identify(Base& p)
 
 int	main()
 {
+	srand(time(NULL));
 	Base	*a;
 	Base	*b;
 	Base	*c;

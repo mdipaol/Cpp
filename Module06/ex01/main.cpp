@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:34:12 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/09/13 19:32:55 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/10/03 18:23:41 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,5 @@ int	main()
 	std::cout << newData << std::endl;
 
 	std::cout << "login " << newData->login << " | " << "password: " << newData->password << std::endl;
+	delete newData;
 }
