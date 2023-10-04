@@ -6,13 +6,13 @@
 #    By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 14:39:03 by mdi-paol          #+#    #+#              #
-#    Updated: 2023/09/14 14:57:13 by mdi-paol         ###   ########.fr        #
+#    Updated: 2023/10/04 18:28:27 by mdi-paol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Template
-SRCS = main.cpp 
-FLAGS = -Wall -Werror -Wextra -std=c++98
+SRCS = main.cpp
+FLAGS = -Wall -Werror -Wextra -std=c++98 -g
 OBJS = $(SRCS:.cpp=.o)
 CC = c++
 
