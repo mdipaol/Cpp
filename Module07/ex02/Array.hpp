@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 16:54:21 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/10/04 18:40:04 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/10/05 10:51:28 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ public:
 	};
 	T &operator[](int index) {
 		if (index >= this->_size || index < 0)
-			throw std::out_of_range("Out of bounds");
+			throw std::out_of_range("\033[1;31mOut of bounds\033[0m");
 		return this->_array[index];
 	};
 	int size(){ return this->_size;};
