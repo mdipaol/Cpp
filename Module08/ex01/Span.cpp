@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 11:05:32 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/09/24 17:04:43 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/10/06 17:46:15 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ unsigned int Span::longestSpan(){
 unsigned int Span::shortestSpan(){
 	if (this->_vector.size() < 2)
 		throw std::out_of_range("Vector empty");
-
 	unsigned int short_span = UINT_MAX;
 	std::vector<int> sort_vec(this->_vector);
 	std::sort(sort_vec.begin(), sort_vec.end());

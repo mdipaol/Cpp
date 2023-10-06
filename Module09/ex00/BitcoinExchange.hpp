@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:44:23 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/09/28 12:46:54 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/10/06 16:03:48 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@
 #include <map>
 #include <fstream>
 #include <sstream>
+#include <iomanip>
 
 class BitcoinExchange
 {
 	private:
-		std::map<std::string, float> _database;
+		std::map<std::string, double> _database;
 		std::string	_inputPath;
 	public:
 		BitcoinExchange();
@@ -30,8 +31,9 @@ class BitcoinExchange
 
 		void createDb();
 		void importInput();
-		void checkPrint(std::string date, float value);
-		bool checkError(std::map<std::string, float>::const_iterator it, std::string date);
+		bool checkErrorDate(const std::string &date);
+		bool checkErrorValue(double value);
+		void findClosestLowerDate(const std::string &date, double value);
 };
 
 #endif

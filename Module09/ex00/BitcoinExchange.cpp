@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:45:52 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/09/29 12:07:36 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/10/06 16:04:54 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,63 +44,59 @@ void	BitcoinExchange::createDb(){
 	}
 }
 
-bool	BitcoinExchange::checkError(std::map<std::string, float>::const_iterator it, std::string date){
+bool	BitcoinExchange::checkErrorValue(double value){
+	if (value < 0)
+	{
+		std::cout << "Error: not a positive number." << std::endl;
+		return false;
+	}
+	else if (value > 1000)
+	{
+		std::cout << "Error: too large number." << std::endl;
+		return false;
+	}
+	return true;
+}
+
+bool	BitcoinExchange::checkErrorDate(const std::string &date){
 	std::istringstream iss(date);
-	(void) it;
 	int year, month, day;
 	char c1, c2;
 	if (iss >> year >> c1 >> month >> c2 >> day) {
 		if (c1 == '-' && c2 == '-') {
-			if (year >= 2000 && year <= 2100 &&
-				month >= 1 && month <= 12 &&
-				day >= 1 && day <= 31) {
+			if (year >= 2009 && year <= 2100 && month >= 1 && month <= 12 && day >= 1 && day <= 31) {
 				return true;
 			}
 		}
 	}
+	std::cout << "Error: bad input => " << date << std::endl;
 	return false;
 }
 
-void	BitcoinExchange::checkPrint(std::string date, float value){
-	std::map<std::string, float>::const_iterator it;
-	for (it = this->_database.begin(); it != this->_database.end(); ++it){
-		//std::cout << it->first.compare(date) << std::endl;
-		if (it->first == date){
-			float newValue = it->second * value;
-			std::cout << date << " => " << it->second << " = " << newValue << std::endl;
-		}
-		else{
-			std::string newDate;
-			if (checkError(it, date)){
-				std::cout << "Correct" << std::endl;
-				return ;
-			}
-			else
-				return ;
+void	BitcoinExchange::findClosestLowerDate(const std::string &date, double value){
+	std::map<std::string, double>::const_reverse_iterator rit;
+	for (rit = this->_database.rbegin(); rit != this->_database.rend(); ++rit){
+		if (rit->first.compare(date) <= 0){
+			double newValue = rit->second * value;
+			std::cout << date << " => " << value << " = " << std::fixed << std::setprecision(3) << newValue << std::endl;
+			break;
 		}
 	}
 }
 
 void	BitcoinExchange::importInput(){
 	std::ifstream inputFile(this->_inputPath.c_str());
-
 	if (inputFile.is_open()){
 		std::string line;
-
 		while (std::getline(inputFile, line)){
 			std::istringstream iss(line);
 			std::string date;
 			std::getline(iss, date, '|');
 			double value;
-
 			if (iss >> value){
 				date.erase(date.size() - 1);
-				checkPrint(date, value);
-				std::cout << date << std::endl;
-			}
-			else{
-				
-				//std::cout << "Error: bad input => " << date << std::endl;
+				if (checkErrorDate(date) && checkErrorValue(value))
+					findClosestLowerDate(date, value);
 			}
 		}
 		inputFile.close();
