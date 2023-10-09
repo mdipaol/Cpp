@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 19:13:42 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/10/08 18:47:12 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/10/09 10:48:42 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,17 @@
 #include <algorithm>
 #include <vector>
 #include <deque>
+#include <ctime>
+
+#define THRESHOLD 4
 
 class PmergeMe
 {
 	private:
 		int					_size;
-		int					_threshold;
 		std::vector<int>	_vector;
 		std::deque<int>		_deque;
+		clock_t				_start;
 	public:
 		PmergeMe();
 		PmergeMe(int size);
