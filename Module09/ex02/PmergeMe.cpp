@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 19:13:44 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/10/09 11:17:43 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/10/10 11:15:15 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,15 @@ void	fillContainer(T &container, int *arr, int size){
 	}
 }
 
-template<typename T>
-double	takeTime(T &container, clock_t start){
-	mergeInsertion();
-	clock_t end = clock();
-	return static_cast<double>(end - start) / CLOCKS_PER_SEC;
-}
 
 template<typename IT>
 void	insertion(IT begin, IT end){
-	unsigned int key;
-	for (IT it = begin + 1, it < end; ++it){
+	int key;
+	for (IT it = begin + 1; it < end; ++it){
 		key = *it;
 		IT j = it - 1;
 		while (j >= begin && *j > key){
-			*(j + 1) = key;
+			*(j + 1) = *j;
 			--j;
 		}
 		*(j + 1) = key;
@@ -42,17 +36,24 @@ void	insertion(IT begin, IT end){
 
 template<typename T, typename IT>
 void	mergeInsertion(T &container, IT begin, IT end){
-	if (begin < end - 1){
+	if (std::distance(begin, end) > THRESHOLD) {
 		IT mid = begin + std::distance(begin, end) / 2;
-		if (std::distance(begin, end) > THRESHOLD)
-			mergeInsertion(container, begin, end);
-		else
-			insertion(begin, end);
-		if (std::distance(mid, end) > THRESHOLD)
-			mergeInsertion(container, mid, end);
-		else
-			insertion(mid, end);
+		mergeInsertion(container, begin, mid);
+		mergeInsertion(container, mid, end);
+		T copy(std::distance(begin, end));
+		std::merge(begin, mid, mid, end, copy.begin());
+		std::copy(copy.begin(), copy.end(), begin);
 	}
+	else {
+		insertion(begin, end);
+	}
+}
+
+template<typename T>
+double	takeTime(T &container, clock_t start){
+	mergeInsertion(container, container.begin(), container.end());
+	clock_t end = clock();
+	return (static_cast<double>(end - start) * 1000000) / CLOCKS_PER_SEC;
 }
 
 PmergeMe::PmergeMe(int size) : _size(size)
@@ -67,11 +68,21 @@ void	PmergeMe::mergeInsert(const std::string &str){
 	int *arr = new int[this->_size];
 	std::istringstream iss(str);
 	int a;
-	for (int i = 0; i < this->_size && iss >> a; i++)
-			arr[i] = a;
+	std::cout << "Before: ";
+	for (int i = 0; i < this->_size && iss >> a; i++){
+		arr[i] = a;
+		std::cout << arr[i];
+	}
+	std::cout << std::endl;
 	this->_start = clock();
 	fillContainer(this->_vector, arr, this->_size);
 	fillContainer(this->_deque, arr, this->_size);
 	double vecTime = takeTime(this->_vector, this->_start);
 	double deqTime = takeTime(this->_deque, this->_start);
+	std::cout << "After: ";
+	for (std::vector<int>::iterator it = _vector.begin(); it != _vector.end(); ++it)
+		std::cout << *it;
+	std::cout << std::endl;
+	std::cout << "Time to process a range of " << _size << "elements with std::vector : " << vecTime << "us" << std::endl;
+	std::cout << "Time to process a range of " << _size << "elements with std::deque : "  << deqTime << "us" << std::endl;
 }
