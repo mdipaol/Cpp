@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 19:13:44 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/10/10 11:15:15 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/10/10 11:26:25 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	fillContainer(T &container, int *arr, int size){
 		container.push_back(arr[i]);
 	}
 }
-
 
 template<typename IT>
 void	insertion(IT begin, IT end){
@@ -83,6 +82,6 @@ void	PmergeMe::mergeInsert(const std::string &str){
 	for (std::vector<int>::iterator it = _vector.begin(); it != _vector.end(); ++it)
 		std::cout << *it;
 	std::cout << std::endl;
-	std::cout << "Time to process a range of " << _size << "elements with std::vector : " << vecTime << "us" << std::endl;
-	std::cout << "Time to process a range of " << _size << "elements with std::deque : "  << deqTime << "us" << std::endl;
+	std::cout << "Time to process a range of " << _size << " elements with std::vector : " << vecTime << " us" << std::endl;
+	std::cout << "Time to process a range of " << _size << " elements with std::deque : "  << deqTime << " us" << std::endl;
 }
