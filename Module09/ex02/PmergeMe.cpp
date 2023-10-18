@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 19:13:44 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/10/10 11:26:25 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/10/11 18:58:15 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	PmergeMe::mergeInsert(const std::string &str){
 	std::cout << "Before: ";
 	for (int i = 0; i < this->_size && iss >> a; i++){
 		arr[i] = a;
-		std::cout << arr[i];
+		std::cout << arr[i] << " ";
 	}
 	std::cout << std::endl;
 	this->_start = clock();
@@ -80,7 +80,7 @@ void	PmergeMe::mergeInsert(const std::string &str){
 	double deqTime = takeTime(this->_deque, this->_start);
 	std::cout << "After: ";
 	for (std::vector<int>::iterator it = _vector.begin(); it != _vector.end(); ++it)
-		std::cout << *it;
+		std::cout << *it << " ";
 	std::cout << std::endl;
 	std::cout << "Time to process a range of " << _size << " elements with std::vector : " << vecTime << " us" << std::endl;
 	std::cout << "Time to process a range of " << _size << " elements with std::deque : "  << deqTime << " us" << std::endl;

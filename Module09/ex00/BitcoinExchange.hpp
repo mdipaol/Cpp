@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:44:23 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/10/06 16:03:48 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/10/17 17:23:48 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ class BitcoinExchange
 		void importInput();
 		bool checkErrorDate(const std::string &date);
 		bool checkErrorValue(double value);
+		bool checkInputLine(const std::string &line);
 		void findClosestLowerDate(const std::string &date, double value);
 };
 

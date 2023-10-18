@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:45:52 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/10/06 16:04:54 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/10/17 17:51:13 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,17 @@ void	BitcoinExchange::findClosestLowerDate(const std::string &date, double value
 	}
 }
 
+bool	BitcoinExchange::checkInputLine(const std::string &line)
+{
+	std::istringstream iss(line);
+	std::string date, separator;
+	double value;
+	if (iss >> date >> separator >> value && separator == "|" && iss.eof())
+		return true;
+	std::cout << "Error: Bad input" << std::endl;
+	return false;
+}
+
 void	BitcoinExchange::importInput(){
 	std::ifstream inputFile(this->_inputPath.c_str());
 	if (inputFile.is_open()){
@@ -91,12 +102,21 @@ void	BitcoinExchange::importInput(){
 		while (std::getline(inputFile, line)){
 			std::istringstream iss(line);
 			std::string date;
-			std::getline(iss, date, '|');
-			double value;
-			if (iss >> value){
-				date.erase(date.size() - 1);
-				if (checkErrorDate(date) && checkErrorValue(value))
-					findClosestLowerDate(date, value);
+			if (checkInputLine(line))
+			{
+				if (line.find('|') == std::string::npos){
+					std::cout << "Error: Bad input" << std::endl;
+					continue;
+				}
+				std::getline(iss, date, '|');
+				double value;
+				if (iss >> value){
+					date.erase(date.size() - 1);
+					if (checkErrorDate(date) && checkErrorValue(value))
+						findClosestLowerDate(date, value);
+				}
+				else if (date.empty())
+					std::cout << "Error: Bad input" << std::endl;
 			}
 		}
 		inputFile.close();

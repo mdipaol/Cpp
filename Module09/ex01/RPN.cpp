@@ -6,7 +6,7 @@
 /*   By: mdi-paol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 11:40:42 by mdi-paol          #+#    #+#             */
-/*   Updated: 2023/10/08 16:02:01 by mdi-paol         ###   ########.fr       */
+/*   Updated: 2023/10/18 17:16:25 by mdi-paol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,13 @@ void	RPN::evaluateRPN(const std::string &str){
 				}
 			}
 		}
+		else
+		{
+			std::cerr << "Error: Is not a valid expression" << std::endl;
+			return ;
+		}
 	}
+
 	if (_stack.size() != 1){
 		std::cerr << "Error: Is not a valid expression" << std::endl;
 		return;
